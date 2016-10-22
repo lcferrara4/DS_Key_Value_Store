@@ -3,6 +3,7 @@
 #include "map.h"
 
 #include <algorithm>
+#include <vector>
 
 // Type Definitions ------------------------------------------------------------
 
