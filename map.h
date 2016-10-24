@@ -8,6 +8,7 @@
 #include <string>
 #include <complex>
 #include <vector>
+#include <map>
 
 // Type definitions ------------------------------------------------------------
 
@@ -77,6 +78,8 @@ public:
             const Entry     search(const std::string &key);
             void            dump(std::ostream &os, DumpFlag flag);
 private:
+            int entries; 
+            std::map<std::string, std::string> rbMap; 
 };
 
 class TreapMap : public Map {
