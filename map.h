@@ -72,4 +72,5 @@ public:
             const Entry     search(const std::string &key);
             void            dump(std::ostream &os, DumpFlag flag);
 private:
+    Node * root = nullptr;
 };
