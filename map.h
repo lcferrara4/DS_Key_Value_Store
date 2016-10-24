@@ -69,6 +69,8 @@ public:
             const Entry     search(const std::string &key);
             void            dump(std::ostream &os, DumpFlag flag);
 private:
+    Node * root = nullptr;
+    int help =0;
 };
 
 class RBTreeMap : public Map {
