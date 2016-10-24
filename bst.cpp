@@ -13,16 +13,15 @@ void    dump_r(Node *node, std::ostream &os, DumpFlag flag);
 // Methods ---------------------------------------------------------------------
 
 void            BSTMap::insert(const std::string &key, const std::string &value) {
-	insert_r(root,key,value);
-
+	root = insert_r(root,key,value);
 }
 
 const Entry     BSTMap::search(const std::string &key) {
 	Node * n = search_r(root,key);
-	if(n != nullptr){
-		return n->entry;
-	}else{
+	if(n == nullptr){
 		return NONE;
+	}else{
+		return n->entry;
 	} 
 }
 
@@ -39,26 +38,25 @@ Node *insert_r(Node *node, const std::string &key, const std::string &value) {
 		node->priority = 0;
 		node->left = nullptr;
 		node->right = nullptr;
-		return node; 
 	}else if(node->entry.first > key){  
 		 node -> left = insert_r(node->left,key,value);
 	}else if(node->entry.first == key){  
-		 node->entry.second = value;
-		 return node;
+		node->entry.second = value; 
 	}else{
 		 node -> right = insert_r(node->right,key,value);
 	}
+	return node; 
 }
 
 Node *search_r(Node *node, const std::string &key) {
-	
-	if(node->entry.first == key || node == nullptr){
+	if(node == nullptr || node->entry.first == key){
 		return node;
 	}else if (node->entry.first > key){
-		 node -> left = search_r(node->left,key);
+		 return search_r(node->left,key);
 	}else{
-		 node -> right = search_r(node->right,key);
+		 return search_r(node->right,key);
 	}
+	return node;
 }
 
 void dump_r(Node *node, std::ostream &os, DumpFlag flag) {
