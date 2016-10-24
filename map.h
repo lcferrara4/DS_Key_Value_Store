@@ -50,7 +50,7 @@ public:
             void            dump(std::ostream &os, DumpFlag flag);
 private:
             int entries = 0;
-            std::vector<std::pair<std::string,std::string>> map;
+            std::vector<Entry> map;
 };
 
 class SortedMap : public Map {
@@ -59,6 +59,8 @@ public:
             const Entry     search(const std::string &key);
             void            dump(std::ostream &os, DumpFlag flag);
 private:
+            int entries = 0;
+            std::vector<Entry> map;
 };
 
 class BSTMap : public Map {
