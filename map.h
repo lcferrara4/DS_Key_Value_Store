@@ -54,6 +54,7 @@ public:
             void            insert(const std::string &key, const std::string &value);
             const Entry     search(const std::string &key);
             void            dump(std::ostream &os, DumpFlag flag);
+            ~BSTMap();
 private:
     Node * root = nullptr;
 };
@@ -71,6 +72,7 @@ public:
             void            insert(const std::string &key, const std::string &value);
             const Entry     search(const std::string &key);
             void            dump(std::ostream &os, DumpFlag flag);
+            ~TreapMap();
 private:
     Node * root = nullptr;
 };

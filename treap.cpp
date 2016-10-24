@@ -16,6 +16,10 @@ static int get_random();
 
 // Methods ---------------------------------------------------------------------
 
+TreapMap::~TreapMap(){
+	delete root;
+}
+
 void            TreapMap::insert(const std::string &key, const std::string &value) {
 	root = insert_r(root,key,value);
 }
@@ -30,6 +34,7 @@ const Entry     TreapMap::search(const std::string &key) {
 }
 
 void            TreapMap::dump(std::ostream &os, DumpFlag flag) {
+	dump_r(root,os,flag);
 }
 
 // Internal Functions ----------------------------------------------------------
