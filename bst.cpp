@@ -12,6 +12,10 @@ void    dump_r(Node *node, std::ostream &os, DumpFlag flag);
 
 // Methods ---------------------------------------------------------------------
 
+BSTMap::~BSTMap(){
+	delete root;
+}
+
 void            BSTMap::insert(const std::string &key, const std::string &value) {
 	root = insert_r(root,key,value);
 }
@@ -26,7 +30,7 @@ const Entry     BSTMap::search(const std::string &key) {
 }
 
 void            BSTMap::dump(std::ostream &os, DumpFlag flag) {
-
+	dump_r(root,os,flag);
 }
 
 // Internal Functions ----------------------------------------------------------
@@ -60,6 +64,30 @@ Node *search_r(Node *node, const std::string &key) {
 }
 
 void dump_r(Node *node, std::ostream &os, DumpFlag flag) {
+	if(node == nullptr){
+		return;
+	}
+	if(flag == 0){
+		dump_r(node->left,os,flag); 
+		os<<node->entry.first<<"\n"; 
+		dump_r(node->right,os,flag); 
+		
+	}else if(flag == 1){
+		dump_r(node->left,os,flag); 
+		os<<node->entry.second<<"\n"; 
+		dump_r(node->right,os,flag); 
+		
+	}else if(flag == 2){
+		dump_r(node->left,os,flag); 
+		os<<node->entry.first<<"\t"<<node->entry.second<<"\n";  
+		dump_r(node->right,os,flag); 
+		
+	}else if(flag == 3){
+		dump_r(node->left,os,flag); 
+		os<<node->entry.second<<"\t"<<node->entry.first<<"\n";
+		dump_r(node->right,os,flag); 
+		
+	}
 }
 
 // vim: set sts=4 sw=4 ts=8 expandtab ft=cpp:
