@@ -52,29 +52,29 @@ void parse_command_line_options(int argc, char *argv[], Map *&map) {
 }
 
 std::string int_to_key( int i, size_t padlength){
-	std::string s = std::to_string(i);
-	if( padlength > s.size() ){
-		s.insert(0, padlength - s.size(), '0');
-	}
-	return s;
+    std::string s = std::to_string(i);
+    if( padlength > s.size() ){
+            s.insert(0, padlength - s.size(), '0');
+    }
+    return s;
 }
 
 int main(int argc, char *argv[]) {
-	Map *map = nullptr;
+    Map *map = nullptr;
 
-	parse_command_line_options(argc, argv, map);
+    parse_command_line_options(argc, argv, map);
 
-	if(argc !=5){
-		usage(1);
-	}
+    if(argc !=5){
+            usage(1);
+    }
 
-	int N = atoi(argv[3]);
-	size_t padlength = atoi(argv[4]);
+    int N = atoi(argv[3]);
+    size_t padlength = atoi(argv[4]);
 
 
-	auto start = std::chrono::high_resolution_clock::now();
-	
-	// Insert 1 - N
+    auto start = std::chrono::high_resolution_clock::now();
+    
+    // Insert 1 - N
     for (int i = 0; i < N; i++) {
 		std::string s = int_to_key(i, padlength); 
     	map->insert(s, s);
@@ -84,8 +84,9 @@ int main(int argc, char *argv[]) {
 
     std::chrono::duration<double> diff = end-start;
     std::cout << "Time to insert: " << diff.count() << std::endl;
+	
 
-	start = std::chrono::high_resolution_clock::now();
+    start = std::chrono::high_resolution_clock::now();
     
     // Search 1 - N
     for (int i = 0; i < N; i++) {
@@ -96,7 +97,7 @@ int main(int argc, char *argv[]) {
     end = std::chrono::high_resolution_clock::now();
 
     diff = end-start;
-    std::cout << "Time to insert: " << diff.count() << std::endl;
+    std::cout << "Time to search: " << diff.count() << std::endl;
 
     return 0;
 }
