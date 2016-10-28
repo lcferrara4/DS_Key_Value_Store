@@ -22,6 +22,11 @@ struct Node {
     int     priority;
     Node    *left;
     Node    *right;
+
+	~Node(){
+		delete left;
+		delete right;
+	}
 };
 // Classes ---------------------------------------------------------------------
 class Map {

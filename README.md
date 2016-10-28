@@ -180,17 +180,17 @@ store].
 | Backend    | Text            | File Size | Elapsed Time  |
 |------------|-----------------|-----------|---------------|
 | UNSORTED   | beowulf         | 21189     | 0.002s        |
-| SORTED     | beowulf         | 21189     |
+| SORTED     | beowulf         | 21189     | 0.003s        |
 | BST        | beowulf         | 21189     | 0.002s        |
 | RBTree     | beowulf         | 21189     | 0.003s        |
 | Treap      | beowulf         | 21189     | 0.004s        |
 | UNSORTED   | peterpan        | 22260     | 0.002s        |
-| SORTED     | peterpan        | 22260     |
+| SORTED     | peterpan        | 22260     | 0.002s        |
 | BST        | peterpan        | 22260     | 0.001s        |
 | RBTree     | peterpan        | 22260     | 0.002s        |
 | Treap      | peterpan        | 22260     | 0.003s        |
 | UNSORTED   | junglebook      | 23057     | 0.003s        |
-| SORTED     | junglebook      | 23057     |               |
+| SORTED     | junglebook      | 23057     | 0.002s        |
 | BST        | junglebook      | 23057     | 0.001s        |
 | RBTree     | junglebook      | 23057     | 0.000s        |
 | Treap      | junglebook      | 23057     | 0.007s        |

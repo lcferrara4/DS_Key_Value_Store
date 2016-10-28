@@ -13,7 +13,7 @@ void    dump_r(Node *node, std::ostream &os, DumpFlag flag);
 // Methods ---------------------------------------------------------------------
 
 BSTMap::~BSTMap(){
-	delete root;
+    delete root;
 }
 
 void            BSTMap::insert(const std::string &key, const std::string &value) {
@@ -37,11 +37,7 @@ void            BSTMap::dump(std::ostream &os, DumpFlag flag) {
 
 Node *insert_r(Node *node, const std::string &key, const std::string &value) {
 	if(node == nullptr){
-		node = new Node;
-		node->entry = std::make_pair(key,value);
-		node->priority = 0;
-		node->left = nullptr;
-		node->right = nullptr;
+		node = new Node{std::make_pair(key,value), 0, nullptr, nullptr};
 	}else if(node->entry.first > key){  
 		 node -> left = insert_r(node->left,key,value);
 	}else if(node->entry.first == key){  

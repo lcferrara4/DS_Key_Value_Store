@@ -79,19 +79,20 @@ int main(int argc, char *argv[]) {
 		std::string s = int_to_key(i, padlength); 
     	map->insert(s, s);
     }
-
+    
     auto end = std::chrono::high_resolution_clock::now();
 
     std::chrono::duration<double> diff = end-start;
     std::cout << "Time to insert: " << diff.count() << std::endl;
 	
+     
 
     start = std::chrono::high_resolution_clock::now();
     
     // Search 1 - N
     for (int i = 0; i < N; i++) {
 		std::string s = int_to_key(i, padlength); 
-		assert(map->search(s) != NONE);
+		map->search(s);
     }
 
     end = std::chrono::high_resolution_clock::now();
