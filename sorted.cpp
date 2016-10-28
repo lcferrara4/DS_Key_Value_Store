@@ -40,8 +40,7 @@ void            SortedMap::insert(const std::string &key, const std::string &val
 const Entry     SortedMap::search(const std::string &key) {
 	IT start = map.begin();
 	IT end = map.end();
-
-    return binary_search(start, end, key);
+        return binary_search(start, end, key);
 }
 
 void            SortedMap::dump(std::ostream &os, DumpFlag flag) {
@@ -69,19 +68,25 @@ void            SortedMap::dump(std::ostream &os, DumpFlag flag) {
 const Entry   binary_search(const IT &start, const IT &end, const std::string &target) {
 	IT s = start;
 	IT e = end;
+        IT m = start;
 	
 	while (1){
-		IT m = s + distance(s,e)/2;
-		if(distance(s,e)/2 == 0 && m->first != target){
-			return NONE;
+		m = s + std::distance(s,e)/2;
+		if(std::distance(s,e)/2 == 0){ // && m != e &&
+                        break;
 		}else if(m->first < target){
-			s = m;
+			s = m + 1;
 		}else if(m->first > target){
 			e = m;
 		}else if(m->first == target){
-			return *m;
+                        break;
 		}
 	}   
+        if (m->first == target) {
+                return *m;
+        } else {
+                return NONE;
+        }
 		
 }
 
