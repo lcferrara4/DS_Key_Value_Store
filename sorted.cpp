@@ -70,24 +70,30 @@ const Entry   binary_search(const IT &start, const IT &end, const std::string &t
 	IT e = end;
         IT m = start;
 	
+        int dist;
 	while (1){
-		m = s + std::distance(s,e)/2;
-		if(std::distance(s,e)/2 == 0){ // && m != e &&
-                        break;
-		}else if(m->first < target){
+        
+                dist = std::distance(s,e)/2;
+                m = s + dist;
+        
+                if( m == end ){ 
+                    return NONE;   
+                }
+
+                if(m->first < target){
 			s = m + 1;
 		}else if(m->first > target){
 			e = m;
 		}else if(m->first == target){
-                        break;
-		}
-	}   
-        if (m->first == target) {
-                return *m;
-        } else {
-                return NONE;
-        }
-		
+                        return *m;
+                }
+                
+
+                if(dist == 0){
+                    return NONE;
+                }
+        }   
+       	
 }
 
 // vim: set sts=4 sw=4 ts=8 expandtab ft=cpp:

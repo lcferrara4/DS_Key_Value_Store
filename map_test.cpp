@@ -72,7 +72,6 @@ int main(int argc, char *argv[]) {
     // Search 1 - N
     for (int i = 0; i < N; i++) {
 	std::string s = std::to_string(i);
-        std::cout << s << std::endl;
 	assert(map->search(s) != NONE);
     }
 
